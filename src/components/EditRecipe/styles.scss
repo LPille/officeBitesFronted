@@ -1,0 +1,180 @@
+
+.edit-wrapper{
+  .actions{
+    display: flex;
+    .action{
+      padding: 12px;
+      cursor: pointer;
+      transition: all 0.2s ease-in-out;
+      flex-direction: row;
+      display: flex;
+      gap: 8px;
+      align-items: center;
+      &:hover{
+        transform: scale(1.1);
+      }
+    }
+  }
+
+
+
+  .recipe{
+    .ingredients{
+
+    }
+    .add-ingredient{
+      margin-top: 12px;
+    }
+
+    .instructions{
+      margin-top: 32px;
+      h3{
+        color: #244614;
+        font-family: 'Amiko', sans-serif;
+        font-size: 24px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: normal;
+      }
+
+      .instruction-wrapper{
+        display: flex;
+        margin: 20px;
+        .instruction-number{
+          p{
+            color: #244614;
+            font-family: 'Amiko', sans-serif;
+            font-size: 28px;
+            font-style: normal;
+            font-weight: 700;
+            line-height: normal;
+            margin-right: 12px;
+          }
+        }
+      }
+    }
+    .add-ingredient{
+      margin-top: 12px;
+    }
+
+    .name{
+      overflow-wrap: break-word;
+      color: #244614;
+      font-family: 'Amiko', sans-serif;
+      font-size: 50px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: normal;
+      padding: 0px 0px;
+      margin-bottom: 30px;
+
+      &.empty{
+        height: 50px;
+        background: transparent;
+        border-bottom: #244614 1px solid;
+      }
+    }
+  
+    .description{
+      min-height: 25px;
+      overflow-wrap: break-word;
+      color: #2B2B2B;
+      font-family: "Nunito Sans", sans-serif;;
+      font-size: 20px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: normal;
+      margin-bottom: 30px;
+
+      &.empty{
+        height: 100%;
+        background: transparent;
+        border-bottom: #244614 1px solid;
+      }
+    }
+  }
+
+  .image-wrapper{
+    box-shadow: 0 0px 25px 4px #44444430;
+    height: 100%;
+    background: #ffffff;
+    padding: 24px;
+    img{
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+}
+
+
+.editableField{
+  cursor: pointer;
+  display: flex;
+  position: relative;
+
+  textarea:focus, textarea:hover{
+    border-bottom: 1px solid #244614;
+  }
+
+  &.isEmpty{
+    background: transparent;
+    //box-shadow: 0 0px 25px 4px #44444430;
+  }
+
+  textarea{
+    border: 0;
+    border-bottom: 1px solid #ffffff00;
+    padding: 8px;
+    cursor: pointer;
+    width: 100%;
+    background-color: transparent;
+    resize: none;
+    transition: border-bottom 350ms ease;
+    width: 100%;
+    padding: 0px 0px;
+    overflow: hidden;
+    &.hover{
+      border-bottom: 1px solid #244614;
+    }
+  }
+
+  &.name textarea{
+    padding: 0px 0px;
+    color: #244614;
+    font-family: 'Amiko', sans-serif;
+    font-size: 50px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+  }
+  &.description textarea{
+  }
+  &.ingredients textarea{
+  }
+  &.instructions {
+    align-items: center;
+    width: 100%;
+    textarea{
+    }
+  }
+}
+
+.inputStyleName{
+  font-weight: 200;
+  opacity: 0;
+  font-size: 16px;
+  position: absolute;
+  bottom: -10px;
+  transition: opacity 0.3s ease-in-out, bottom 0.3s ease-in-out;
+}
+.showInputStyleName{
+  opacity: 1;
+  bottom: -20px;
+}
+
+
+
+.ingredient-wrapper{
+
+}

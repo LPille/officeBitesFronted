@@ -5,7 +5,7 @@ import Header from '../../components/Header/Header';
 export const Home = () => (
 
   <div className='home'>
-    <Navbar />
+    <Navbar transparentThreshold={100}/>
     <Header />
 
     {/*       

@@ -1,9 +1,12 @@
 .dashboard{
+  justify-content: center;
+  display: flex;
+  background-color: #f7ffcf;
+  min-height: 100vh;
+
   .dashboard-wrapper{
-    margin-top: 50px;
     max-width: 1440px;
     width: 100%;
     padding: 64px;
   }
-
 }

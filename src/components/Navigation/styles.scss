@@ -2,11 +2,18 @@
   justify-content: center;
   display: flex;
   width: 100%;
-  position: sticky;
+  position: fixed;
+  box-shadow: 0 0px 25px 4px #44444430;
+  z-index: 1;
+  background-color: white;
+  transition: background-color 0.3s ease-in-out;
+  &.transparent {
+    background-color: transparent;
+    box-shadow: unset;
+  }
   .navbar{
-    max-width: 1440px;
+    max-width: 1280px;
     width: 100%;
-    box-shadow: 0 10px 50px -25px rgba(28,47,73,.25);
 
     .navbar-container{
       width: 100%;
@@ -15,17 +22,32 @@
       margin: 12px;
       display: flex;
       justify-content: space-between;
-      li{
-        margin: 0 10px;
-
+      .logo{
         a{
           text-decoration: none;
-          cursor: pointer;
-          color: #000;
-          font-size: 16px;
+          color: #244614;
+          font-family: 'Righteous', cursive;
+          font-size: 22px;
+          font-style: normal;
           font-weight: 600;
-          &:hover{
-            color: #000;
+          line-height: normal;
+        }
+      }
+      .menu{
+        display: flex;
+        gap: 20px;
+        .item{
+          margin: 0 10px;
+          a{
+            text-decoration: none;
+            cursor: pointer;
+            color: #244614;
+            font-size: 18px;
+            font-family: 'NunitoSans Regular', sans-serif;
+            font-weight: 800;
+            &:hover{
+              color: #000;
+            }
           }
         }
       }

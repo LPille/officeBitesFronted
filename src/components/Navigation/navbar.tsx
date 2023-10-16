@@ -1,23 +1,48 @@
 // Navbar.tsx
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import './styles.scss';
 import { Link } from "react-router-dom";
+import cn from 'classnames'
 
-const Navbar: React.FC = () => {
+interface NavbarProps {
+  transparentThreshold: number; // The scroll threshold for changing the background
+}
+
+const Navbar: React.FC<NavbarProps> = ({ transparentThreshold }) => {
+
+  const [isTransparent, setIsTransparent] = useState(true);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrolled = window.scrollY;
+      setIsTransparent(scrolled <= transparentThreshold);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, [transparentThreshold]);
+  
   return (
-    <div className='navbar-wrapper'>
+    <div className={cn('navbar-wrapper',{'transparent' : isTransparent})}>
       <div className='navbar'>
-            <ul className='navbar-container'>
-              <li className='logo'>
-                <Link to='/'>Logo</Link>
-              </li>
-              <li className=''>
-                <Link to='/'>Random Lets GO</Link>
-              </li>
-              <li className=''>
+            <div className='navbar-container'>
+              <div className='logo'>
+                <Link to='/'>OfficeBites</Link>
+    
+              </div>
+              <div className='menu'>
+
+              <div className='item'>
+                <Link to='/'>Random</Link>
+              </div>
+              <div className='item'>
                 <Link to='/list'>List</Link>
-              </li>
-            </ul>
+              </div>
+              </div>
+            </div>
       </div>
     </div>
   );

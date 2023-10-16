@@ -1,3 +1,3 @@
-export { ReceipeProvider } from './ReceipeContext'
-export { useReceipe } from './useReceipe'
-export type { Receipe } from './ReceipeContext'
+export { RecipeProvider } from './RecipeContext'
+export { useRecipe } from './useRecipe'
+export type { Recipe } from './RecipeContext'

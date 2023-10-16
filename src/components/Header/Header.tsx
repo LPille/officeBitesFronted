@@ -50,10 +50,10 @@ const Header: React.FC = () => {
             shouldAlwaysCompleteAnimation={true}
           />
           <div className='body'>
-            <div className='title'>
+            <div className='name'>
               <h1>Whip up <span className='highlited'>Something</span> Tasty</h1>
             </div>
-            <Button text="Explore Receipes" onClick={handleClick} primary={true} />
+            <Button text="Explore Recipes" onClick={handleClick} primary={true} />
           </div>
         </div>
       </ParallaxProvider>

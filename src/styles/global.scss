@@ -1,8 +1,19 @@
+@import url('https://fonts.googleapis.com/css2?family=Righteous&display=swap');
+
 body {
   padding: 0;
   margin: 0;
-  height: 200vh;
+  min-height: 100vh;
+  //height: 200vh;
   //background: #000;
+}
+
+input:focus,
+select:focus,
+textarea:focus,
+button:focus {
+    outline-width: 0;
+
 }
 
 .headline {
@@ -39,9 +50,6 @@ body {
 
 
 
-
-
-
 .home{
   height: 4000px;
 
@@ -53,13 +61,23 @@ body {
 }
 
 h1{
-  color: #ffffff;
+  color: #244614;
   font-family: 'Amiko', sans-serif;
   font-size: 50px;
   font-style: normal;
   font-weight: 700;
   line-height: normal;
-  letter-spacing: 5px;
 }
 
+h3{
+  color: #244614;
+  font-family: 'Amiko', sans-serif;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
 
+p{
+  margin: 0px;
+}
