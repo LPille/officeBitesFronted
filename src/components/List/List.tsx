@@ -19,7 +19,7 @@ export const RecipeList = () => {
     <div className="list">
       <ul className="row recipe-list">
         {recipes.map(recipe => (
-          <RecipeItem recipe={recipe} key={recipe.id} />
+          <RecipeItem recipe={recipe} key={recipe._id} />
         ))}
       </ul>
     </div>

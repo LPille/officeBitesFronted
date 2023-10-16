@@ -10,12 +10,18 @@ export const getAllRecipes = async () => {
 };
 
 export const addRecipe = async (recipeData) => {
-  const response = await api.post('/recipes', recipeData);
+  const response = await api.post('/recipe', recipeData);
+  return response.data.recipe;
+};
+
+export const updateRecipe = async (recipeData) => {
+  console.log(recipeData);
+  const response = await api.put(`/recipe/${recipeData._id}`, recipeData);
   return response.data.recipe;
 };
 
 export const deleteRecipe = async (recipeId) => {
-  const response = await api.delete(`/recipes/${recipeId}`);
+  const response = await api.delete(`/recipe/${recipeId}`);
   return response.data.recipe;
 };
 

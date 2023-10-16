@@ -1,14 +1,14 @@
 import React, { createContext, useState,useEffect } from 'react'
-import { nanoid } from 'nanoid'
+//import { nanoid } from 'nanoid'
 import { useLocalStorage } from 'usehooks-ts'
-import { getAllRecipes, addRecipe, deleteRecipe } from '../services/axios'; // Update the path
+import { getAllRecipes, addRecipe, deleteRecipe, updateRecipe } from '../services/axios'; // Update the path
 
 
 interface RecipeContextProps {
   recipes: Recipe[]
-  addRecipe: (name: string, description: string| null, duration: number | null, style: number | null) => void
-  deleteRecipe: (id: string) => void
-  saveRecipe: (recipe: Recipe | null) => void
+  handleAddRecipe: () => void
+  handleDeleteRecipe: (id: string) => void
+  handleSaveRecipe: (recipe: Recipe | null) => void
   editRecipe: (id: string, text: string) => void
   editingRecipe: Recipe | null
   setEditingRecipe: React.Dispatch<React.SetStateAction<Recipe | null>>
@@ -26,7 +26,7 @@ export interface Instruction{
 }
 
 export interface Recipe {
-  id: string
+  _id: string
   name: string | null
   description?: string | null
   duration?: number | null
@@ -52,26 +52,31 @@ export const RecipeProvider = (props: { children: React.ReactNode }) => {
 
 
   // ::: ADD NEW Recipe :::
-  const addRecipe = (name: string, description: string | null, duration: number | null, style: number | null) => {
-    
-    const newRecipe: Recipe = {
-      id: nanoid(),
-      name: name,
-      description,
-      duration,
-      style,
+  const handleAddRecipe = async () => {
+    const newRecipeData = { 
+      name: '',
+      description: '',
+      duration: 0,
+      style: 1,
+      ingredients: [],
+      instructions: []
     }
+    
+    const newRecipe = await addRecipe(newRecipeData);
+    setEditingRecipe(newRecipe)
     setRecipes([...recipes, newRecipe])
+
   }
 
-  const deleteRecipe = (id: string) => {
-    setRecipes(prevRecipes => prevRecipes.filter(recipe => recipe.id !== id))
+  const handleDeleteRecipe = async (_id: string) => {
+    const deletedRecipe = await deleteRecipe(_id);
+    setRecipes(prevRecipes => prevRecipes.filter(recipe => recipe._id !== _id))
   }
 
-  const editRecipe = (id: string, name: string) => {
+  const editRecipe = (_id: string, name: string) => {
     setRecipes(prevRecipes => {
       return prevRecipes.map(recipe => {
-        if (recipe.id === id) {
+        if (recipe._id === _id) {
           return { ...recipe, name: name }
         }
         return recipe
@@ -79,14 +84,19 @@ export const RecipeProvider = (props: { children: React.ReactNode }) => {
     })
   }
   // Save a recipe
-  const saveRecipe = (recipe: Recipe | null) => {
+  const handleSaveRecipe = async (recipe: Recipe | null) => {
     if (recipe) {
-      if(!recipes.some(item => item.id === recipe.id)){
+      if(!recipes.some(item => item._id === recipe._id)){
+        console.log("new RECIPE")
         setRecipes([...recipes, recipe]);
       } else {
+        console.log("Update RECIPE")
+
+        const updatedRecipe = await updateRecipe(recipe);
+
         setRecipes(prevRecipes => {
           return prevRecipes.map(prevRecipe => {
-            if (prevRecipe.id === recipe.id) {
+            if (prevRecipe._id === recipe._id) {
               return recipe
             }
             return prevRecipe
@@ -113,13 +123,12 @@ export const RecipeProvider = (props: { children: React.ReactNode }) => {
 
   const value: RecipeContextProps = {
     recipes: recipes,
-    addRecipe: addRecipe,
-    deleteRecipe: deleteRecipe,
+    handleAddRecipe: handleAddRecipe,
+    handleDeleteRecipe: handleDeleteRecipe,
+    handleSaveRecipe: handleSaveRecipe,
     editRecipe: editRecipe,
     editingRecipe: editingRecipe,
     setEditingRecipe: setEditingRecipe,
-    saveRecipe: saveRecipe
-    //updateRecipeStatus,
   }
 
   return (
