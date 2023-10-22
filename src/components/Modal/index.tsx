@@ -14,6 +14,7 @@ interface ModalProps {
 const Modal: React.FC<ModalProps> = ({ isOpen, closeModal, children, className }) => {
   return (
     <ReactResponsiveModal open={isOpen} onClose={closeModal} showCloseIcon={false}
+      center
       classNames={{
         overlay: styles.customOverlay,
         modal: cn(styles.customModal, className),

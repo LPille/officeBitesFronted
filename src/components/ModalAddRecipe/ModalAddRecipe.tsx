@@ -1,5 +1,10 @@
 import React, { useState } from 'react';
 import styles from './ModalAddRecipe.module.scss';
+import ChooseCreatingMood from './Steps/ChooseCreatingMood';
+import { useRecipe } from 'src/context';
+import GenerateRecipe from './GenerateRecipe/GenerateRecipe';
+import { generateText } from '../../services/openaiServices';
+
 
 interface RecipeModalProps {
   isOpen: boolean;
@@ -8,23 +13,51 @@ interface RecipeModalProps {
 
 const ModalAddRecipe: React.FC<RecipeModalProps> = ({ isOpen, closeModal }) => {
   const [recipeName, setRecipeName] = useState('');
+  const [creatingMood, setCreatingMood] = useState('');
+  const { handleAddRecipe } = useRecipe()
+
+
+  const [generatedText, setGeneratedText] = useState('');
+
+  const handleGenerateText = async () => {
+    const text = await generateText('Generate text based on this prompt.');
+    setGeneratedText(text);
+    console.log('Generated text:', text)
+  }
 
   const handleRecipeNameChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setRecipeName(event.target.value);
   };
 
   const handleSubmit = () => {
-    // Add your recipe submission logic here
-    // For simplicity, we'll just log the recipe name
     console.log('Recipe Name:', recipeName);
     closeModal();
   };
 
 
+ const handleCreationMood = (mood: string) => {
+    if(mood === "blank") {
+      closeModal();
+      handleAddRecipe();
+    } else{
+      setCreatingMood(mood);
+    }
+  };
+
+
   
   return (
-    <>
-    <div className={styles.headerContainer}>
+    <div className={styles.modalContainer}>
+      { !creatingMood && (
+        <ChooseCreatingMood handleCreationMood={handleCreationMood} />
+      )}
+      { creatingMood && (
+        <GenerateRecipe />
+      )}
+
+
+    
+{/*     <div className={styles.headerContainer}>
       <h1 className={styles.header}>Add Recipe</h1>
     </div>
       <h2>Add Recipe</h2>
@@ -39,8 +72,8 @@ const ModalAddRecipe: React.FC<RecipeModalProps> = ({ isOpen, closeModal }) => {
       <button onClick={closeModal}>Cancel</button>
       <div className={styles.footer}>
 
-      </div>
-    </>
+      </div> */}
+    </div>
   );
 };
 

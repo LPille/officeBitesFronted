@@ -1,8 +1,11 @@
 .dashboard{
   justify-content: center;
   display: flex;
-  background-color: #f7ffcf;
   min-height: 100vh;
+
+  background: #ffefba;
+  background: -webkit-linear-gradient(to right, #ffefba, #ffffff);
+  background: linear-gradient( #ffefba, #ffffff);
   
   .dashboardWrapper{
     max-width: 1440px;

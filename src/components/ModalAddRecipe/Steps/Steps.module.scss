@@ -1,0 +1,54 @@
+.moodContainer{
+  display: flex;
+  flex-direction: column;
+  height: 500px;
+  background-color: #fbd792;
+
+  p{
+    font-size: 28px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    letter-spacing: 1.6px;
+    color: #723D46;
+    font-family: "Archivo", sans-serif;
+  }
+  svg{
+    height: auto;
+    width: 45px;
+  }
+
+  hr{
+    width: 60%;
+    align-self: center;
+    color: #723D46;
+    opacity: 1;
+    margin: 0px;
+  }
+  .moodBlank{
+    gap: 18px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    transition: transform 0.2s;
+    cursor: pointer;
+    &:hover{
+      transform: scale(1.1);
+    }
+  }
+  .moodGenerate{
+    gap: 18px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    transition: transform 0.2s;
+    cursor: pointer;
+    &:hover{
+      transform: scale(1.1);
+    }
+  }
+}

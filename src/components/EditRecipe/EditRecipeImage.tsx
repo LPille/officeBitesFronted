@@ -24,28 +24,6 @@ export const EditRecipeImage = () => {
 
   useEffect(() => {
 
-    const options = {
-      method: 'GET',
-      url: 'https://edamam-food-and-grocery-database.p.rapidapi.com/api/food-database/v2/parser',
-      params: {
-        'cuisineType': 'Asian',
-      },
-      headers: {
-        'X-RapidAPI-Key': 'e74f37d68fmsh2f9745c942a1a40p189d4fjsn3eaf1cb0f2b0',
-        'X-RapidAPI-Host': 'edamam-food-and-grocery-database.p.rapidapi.com'
-      }
-    };
-
-
-    const list = async () => {
-      try {
-        const response = await axios.request(options);
-        console.log(response.data);
-      } catch (error) {
-        console.error(error);
-      }
-    };
-
     const fetchMealImages = async () => {
       try {
         const response = await axios.get( 'https://www.themealdb.com/api/json/v1/1/random.php',{
@@ -60,7 +38,6 @@ export const EditRecipeImage = () => {
         console.error('Error fetching meal images:', error);
       }
     };
-    list()
     fetchMealImages();
   }, []);
 
@@ -82,10 +59,10 @@ export const EditRecipeImage = () => {
         </div>
       )}
       {dummyImages.map((image) => (
-        <div key={image.idMeal}>
-          <h2>{image.strMeal}</h2>
-          <img src={image.strMealThumb} alt={image.strMeal} />
-        </div>
+        <>
+    {/*       <h2>{image.strMeal}</h2> */}
+          <img key={image.idMeal} src={image.strMealThumb} alt={image.strMeal} />
+        </>
       ))}
     </div>
 
