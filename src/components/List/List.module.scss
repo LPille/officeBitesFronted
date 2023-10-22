@@ -1,7 +1,7 @@
 
 
 
-.new-card{
+.newCard{
   box-shadow: 0 10px 50px -25px rgba(28,47,73,.25);
   padding: 24px;
   display: flex;
@@ -17,7 +17,7 @@
 
 
 
-.new-card{
+.newCard{
     box-shadow: 0px 0px 40px -15px #000000;
     padding: 8px;
     cursor: pointer;
@@ -32,7 +32,7 @@
       height: 24px;
       width: 24px;
     }
-  .new-name{
+  .newName{
       color: #ffffff;
       font-family: 'Amiko', sans-serif;
       font-size: 24px;
@@ -42,7 +42,7 @@
 }
 
 
-.item-wrapper{
+.itemWrapper{
   padding: 12px;
 
   .item{
@@ -58,7 +58,7 @@
         border-radius: 8px 8px 0px 0px;
       }
     }
-    .body-wrapper{
+    .bodyWrapper{
       position: relative;
       hr{
         height: 50%;
@@ -105,7 +105,7 @@
 
     
       .body{
-        padding: px;
+        padding: 16px;
         min-height: 150px;
         .name{
           h1{

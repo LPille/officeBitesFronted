@@ -1,5 +1,7 @@
 import { RecipeItem } from './Item'
 import { useRecipe} from '../../context'
+import styles from './List.module.scss';
+import cn from 'classnames';
 
 export const RecipeList = () => {
 
@@ -16,8 +18,8 @@ export const RecipeList = () => {
   }
 
   return (
-    <div className="list">
-      <ul className="row recipe-list">
+    <div className={styles.list}>
+      <ul className={cn('row', styles.recipeList)}>
         {recipes.map(recipe => (
           <RecipeItem recipe={recipe} key={recipe._id} />
         ))}

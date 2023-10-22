@@ -7,6 +7,7 @@ import { Ingredient, Instruction } from 'src/context/RecipeContext'
 import EditIngredient  from './EditIngredient'
 import EditInstruction  from './EditInstructions'
 import { nanoid } from 'nanoid'
+import { EditRecipeImage } from './EditRecipeImage';
 
 
 export const EditRecipe = () => {
@@ -46,6 +47,12 @@ export const EditRecipe = () => {
     }
   }, [tempIngredients])
 
+
+  useEffect(() => {
+    if(tempRecipe) {
+      setTempRecipe({...tempRecipe, instructions: tempInstructions})
+    }
+  }, [tempInstructions])
 
 
   const updateName = (value: string) => {
@@ -172,9 +179,8 @@ export const EditRecipe = () => {
             </div>
           </div>
           <div className="col-12 col-md-6">
-            <div className='image-wrapper'>
-              <img src={defaultImage} alt="recipe" />
-            </div>
+            <EditRecipeImage />
+       
           </div>
         </div>
       )}

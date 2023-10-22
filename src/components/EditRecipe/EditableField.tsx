@@ -88,28 +88,7 @@ const EditableField : React.FC<EditableFieldProps> = ({initialValue, updateField
             <p className={cn('inputStyleName', {'showInputStyleName' : isHoverField || isEditing})}>{inputType}</p>
           )}
       </div>
-      
-
-        
-{/*    {        { inputStyle === 'name' && (
-            <h1 className={cn('name',{'empty' : value === "", 'hover' : isHoverField})}
-            onMouseEnter={() => toggleMouseEnterField()}
-            onMouseLeave={() => toggleMouseLeaveField()}
-            >{value}</h1>
-          )}
-          { inputStyle === 'description' && (
-            <p className={cn('description',{'empty' : value === "",'hover' : isHoverField})}
-            onMouseEnter={() => toggleMouseEnterField()}
-            onMouseLeave={() => toggleMouseLeaveField()}
-            >{value}</p>
-          )}
-          { (value.length === 0 || isHoverField) &&  (
-            <p className='inputValue'>{inputType}</p>
-          )}
-  }
-        </>
-      )} */}
-      </>
+    </>
   );
 };
 

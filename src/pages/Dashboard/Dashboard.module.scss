@@ -1,0 +1,24 @@
+.dashboard{
+  justify-content: center;
+  display: flex;
+  background-color: #f7ffcf;
+  min-height: 100vh;
+  
+  .dashboardWrapper{
+    max-width: 1440px;
+    width: 100%;
+    padding: 64px;
+  }
+}
+
+
+.modalWrapper {
+  max-width: 640px;
+  width: 100%;
+  padding: 24px;
+  background: #FFFFFF;
+  font-family: 'Nunito Sans', sans-serif;
+  margin: 40px auto;
+  overflow: visible;
+  position: relative;
+}

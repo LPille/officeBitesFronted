@@ -7,7 +7,6 @@ interface ButtonProps {
   onClick: () => void;
   primary?: boolean;
   secondary?: boolean;
-
 }
 
 
