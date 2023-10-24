@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import styles from './ModalAddRecipe.module.scss';
-import ChooseCreatingMood from './Steps/ChooseCreatingMood';
+import ChooseCreatingMode from './Steps/ChooseCreatingMode';
 import { useRecipe } from 'src/context';
 import GenerateRecipe from './GenerateRecipe/GenerateRecipe';
 import { generateText } from '../../services/openaiServices';
@@ -13,7 +13,7 @@ interface RecipeModalProps {
 
 const ModalAddRecipe: React.FC<RecipeModalProps> = ({ isOpen, closeModal }) => {
   const [recipeName, setRecipeName] = useState('');
-  const [creatingMood, setCreatingMood] = useState('');
+  const [creatingMode, setCreatingMode] = useState('');
   const { handleAddRecipe } = useRecipe()
 
 
@@ -35,12 +35,12 @@ const ModalAddRecipe: React.FC<RecipeModalProps> = ({ isOpen, closeModal }) => {
   };
 
 
- const handleCreationMood = (mood: string) => {
-    if(mood === "blank") {
+ const handleCreationMode = (mode: string) => {
+    if(mode === "blank") {
       closeModal();
       handleAddRecipe();
     } else{
-      setCreatingMood(mood);
+      setCreatingMode(mode);
     }
   };
 
@@ -48,10 +48,10 @@ const ModalAddRecipe: React.FC<RecipeModalProps> = ({ isOpen, closeModal }) => {
   
   return (
     <div className={styles.modalContainer}>
-      { !creatingMood && (
-        <ChooseCreatingMood handleCreationMood={handleCreationMood} />
+      { !creatingMode && (
+        <ChooseCreatingMode handleCreationMode={handleCreationMode} />
       )}
-      { creatingMood && (
+      { creatingMode && (
         <GenerateRecipe />
       )}
 

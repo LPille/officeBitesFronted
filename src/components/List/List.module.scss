@@ -1,7 +1,6 @@
 
 
-
-.newCard{
+.buttonAddNew{
   box-shadow: 0 10px 50px -25px rgba(28,47,73,.25);
   padding: 24px;
   display: flex;
@@ -17,27 +16,37 @@
 
 
 
-.newCard{
-    box-shadow: 0px 0px 40px -15px #000000;
-    padding: 8px;
-    cursor: pointer;
-    display: flex;
-    flex-direction: row;
-    background-color: #147817;
-    align-items: center;
-    border-radius: 8px;
-    width: fit-content;
-    gap: 8px;
-    svg{
-      height: 24px;
-      width: 24px;
-    }
+.buttonAddNew{
+  box-shadow: 0px 0px 40px -15px #000000;
+  padding: 8px 14px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: row;
+  background-color: #283618;
+  align-items: center;
+  border-radius: 8px;
+  width: fit-content;
+  gap: 8px;
+
+  border: 0px;
+  border-radius: 30px;
+  transition: all 0.2s;
+
+  &:hover{
+    //transform: scale(1.05);
+    background-color: #606C38;
+    //color: #606C38;
+  }
+  svg{
+    height: 24px;
+    width: 24px;
+  }
   .newName{
-      color: #ffffff;
+      color: #FEFAE0;
       font-family: 'Amiko', sans-serif;
-      font-size: 24px;
+      font-size: 18px;
       font-style: normal;
-      font-weight: 700;
+      font-weight: 500;
   }
 }
 
@@ -72,6 +81,7 @@
         width: 100%;
         height: 100%;
         background: #000000b5;
+        //background: #DDA15E;
         flex-direction: row;
         align-items: center;
         justify-content: center;
@@ -107,9 +117,11 @@
       .body{
         padding: 16px;
         min-height: 150px;
+        background-color: #FEFAE0;
+        border-radius: 0px 0px 8px 8px;
         .name{
           h1{
-            color: #244614;
+            color: #283618;
             font-family: "Archivo", sans-serif;
             font-size: 32px;
             -webkit-line-clamp: 2;

@@ -1,10 +1,7 @@
 
 export const dish_types = [
-  "Alcohol-cocktail",
   "Biscuits and cookies",
   "Bread",
-  "Cereals",
-  "Condiments and sauces",
   "Drinks",
   "Desserts",
   "Egg",
@@ -12,7 +9,6 @@ export const dish_types = [
   "Omelet",
   "Pancake",
   "Preps",
-  "Preserve",
   "Salad",
   "Sandwiches",
   "Soup",
@@ -24,23 +20,17 @@ export const meal_types = [
   "Lunch",
   "Snack",
   "Dinner",
-  "Teatime",
 ]
 
 export const health_types : string[] = [
   "Immune-Supportive",
-  "Gluten",
-  "Kidney friendly",
-  "Mediterranean",
   "No-sugar",
   'High-Protein',
   'Low-Carb',
   'Low-Fat',
   'Balanced',
-  'High-Fiber',
   'Vegan',
   'Vegetarian',
-  'Gluten free',
   ]
 
 export const cuisine_types = [

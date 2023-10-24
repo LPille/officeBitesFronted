@@ -1,8 +1,18 @@
-.GenerateRecipeContainer{
+.generateRecipeContainer{
   display: flex;
   flex-direction: column;
   height: 500px;
-  background-color: #fbd792;
+  background-color: #FEFAE0;
+  //background: -webkit-linear-gradient( #ffdcc7, #ffd4ab); /* Chrome 10-25, Safari 5.1-6 */
+  //background: linear-gradient( #ffdcc7, #ffd4ab); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  //background: -webkit-linear-gradient( #f3ffd0, #e4dbbb);
+  //background: linear-gradient( #f3ffd0, #e4dbbb); 
+  padding: 32px;
+
+  h1{
+    font-size: 32px;
+    color: #606C38;
+  }
 
   p{
     font-size: 28px;
@@ -10,7 +20,7 @@
     font-weight: 700;
     line-height: normal;
     letter-spacing: 1.6px;
-    color: #723D46;
+    color: #405346;
     font-family: "Archivo", sans-serif;
   }
   svg{
@@ -21,38 +31,58 @@
   hr{
     width: 60%;
     align-self: center;
-    color: #723D46;
+    color: #656c69;
     opacity: 1;
     margin: 0px;
   }
-  .moodBlank{
-    gap: 18px;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    transition: transform 0.2s;
-    cursor: pointer;
-    &:hover{
-      transform: scale(1.1);
-    }
+
+
+  .header{
+    text-align: center;
+    margin-bottom: 24px;
   }
-  .moodGenerate{
-    gap: 18px;
-    height: 100%;
+
+  .body{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+
+  }
+  .footer{
     display: flex;
     align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    transition: transform 0.2s;
-    cursor: pointer;
-    &:hover{
-      transform: scale(1.1);
+    align-self: center;
+    margin-top: 32px;
+    button{
+      width: 100%;
+      max-width: 200px;
+      height: 50px;
+      background-color: #606C38;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 18px;
+      font-style: normal;
+      font-weight: 500;
+      line-height: normal;
+      letter-spacing: 1.6px;
+      text-align: center;
+      cursor: pointer;
+      transition: transform 0.2s;
+      &:hover{
+        transform: scale(1.05);
+      }
     }
+  
+
   }
 }
 
+
+.multipleSelectItem{
+  width: auto;
+  margin-bottom: 16px;
+}
 
 /* CSS HEX */
 /* --bittersweet: #e26d5cff;

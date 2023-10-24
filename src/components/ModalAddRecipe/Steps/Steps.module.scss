@@ -1,8 +1,8 @@
-.moodContainer{
+.modeContainer{
   display: flex;
   flex-direction: column;
   height: 500px;
-  background-color: #fbd792;
+  background-color: #606C38;
 
   p{
     font-size: 28px;
@@ -10,7 +10,7 @@
     font-weight: 700;
     line-height: normal;
     letter-spacing: 1.6px;
-    color: #723D46;
+    color: #FEFAE0;
     font-family: "Archivo", sans-serif;
   }
   svg{
@@ -21,11 +21,11 @@
   hr{
     width: 60%;
     align-self: center;
-    color: #723D46;
+    color: #FEFAE0;
     opacity: 1;
     margin: 0px;
   }
-  .moodBlank{
+  .modeBlank{
     gap: 18px;
     height: 100%;
     display: flex;
@@ -38,7 +38,7 @@
       transform: scale(1.1);
     }
   }
-  .moodGenerate{
+  .modeGenerate{
     gap: 18px;
     height: 100%;
     display: flex;

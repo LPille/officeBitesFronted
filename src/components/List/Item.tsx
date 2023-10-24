@@ -5,11 +5,21 @@ import { toast } from 'react-hot-toast'
 import defaultImage from '../../assets/images/pasta.jpg';
 import styles from './List.module.scss';
 import cn from 'classnames'
+import axios from 'axios';
+
+
+interface Image {
+  idMeal: string;
+  strMeal: string;
+  strMealThumb: string;
+}
+
 
 export const RecipeItem = (props: { recipe: Recipe }) => {
   
   const { recipe } = props
   const [isHoverCard, setIsHoverCard] = useState<Boolean>(false)
+  const [dummyImages, setDummyImages] = useState<Image[]>([]);
 
 /*   const [editingReceipeText, setEditingReceipeText] = useState<string>('')
   const [editingReceipeId, setEditingReceipeId] = useState<string | null>(null)
@@ -18,6 +28,26 @@ export const RecipeItem = (props: { recipe: Recipe }) => {
   const { handleDeleteRecipe, editingRecipe, setEditingRecipe} = useRecipe()
 
   const editInputRef = useRef<HTMLInputElement>(null)
+
+  useEffect(() => {
+    const fetchMealImages = async () => {
+      try {
+        const response = await axios.get( 'https://www.themealdb.com/api/json/v1/1/random.php',{
+          params: {
+            number: 3, // Fetch 3 random meals
+          },
+        });
+        if (response.data.meals) {
+          setDummyImages(response.data.meals);
+        }
+      } catch (error) {
+        console.error('Error fetching meal images:', error);
+      }
+    };
+    fetchMealImages();
+  }, []);
+
+
 
   useEffect(() => {
     if (editingRecipe !== null && editInputRef.current) {
@@ -72,7 +102,13 @@ export const RecipeItem = (props: { recipe: Recipe }) => {
         onMouseLeave={() => toggleMouseLeaveCard()}
         >
         <div className={styles.image}>
-          <img src={defaultImage} alt="recipe" />
+        {dummyImages.map((image) => (
+        <>
+    {/*       <h2>{image.strMeal}</h2> */}
+          <img key={image.idMeal} src={image.strMealThumb} alt={image.strMeal} />
+        </>
+      ))}
+          {/* <img src={defaultImage} alt="recipe" /> */}
         </div>
         <div className={styles.bodyWrapper}>
           <div className={cn(styles.actions,{[styles.hover] : isHoverCard})}>

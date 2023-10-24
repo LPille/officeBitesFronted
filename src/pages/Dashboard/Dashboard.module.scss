@@ -2,10 +2,12 @@
   justify-content: center;
   display: flex;
   min-height: 100vh;
+  
+  background: #FEFAE0;
 
-  background: #ffefba;
-  background: -webkit-linear-gradient(to right, #ffefba, #ffffff);
-  background: linear-gradient( #ffefba, #ffffff);
+  //background: #ffefba;
+  //background: -webkit-linear-gradient(to right, #ffdcc7, #ffd4ab);
+  //background: linear-gradient( #ffdcc7, #ffd4ab);
   
   .dashboardWrapper{
     max-width: 1440px;

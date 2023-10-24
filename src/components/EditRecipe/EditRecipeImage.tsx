@@ -23,7 +23,6 @@ export const EditRecipeImage = () => {
   }; */
 
   useEffect(() => {
-
     const fetchMealImages = async () => {
       try {
         const response = await axios.get( 'https://www.themealdb.com/api/json/v1/1/random.php',{

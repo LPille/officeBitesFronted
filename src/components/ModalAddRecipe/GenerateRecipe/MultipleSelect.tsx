@@ -7,6 +7,8 @@ import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select, { SelectChangeEvent } from '@mui/material/Select';
 import Chip from '@mui/material/Chip';
+import styles from './GenerateRecipe.module.scss';
+import cx from 'classnames';
 
 const ITEM_HEIGHT = 48;
 const ITEM_PADDING_TOP = 8;
@@ -34,10 +36,11 @@ interface MultipleSelectProps {
   items: string[];
   name: string;
   id: string;
+  label: string | null;
 }
 
 
-const MultipleSelect: React.FC<MultipleSelectProps> = ({ items, name, id }) => {
+const MultipleSelect: React.FC<MultipleSelectProps> = ({ items, name, id, label = null }) => {
   const theme = useTheme();
 
   const [personName, setPersonName] = React.useState<string[]>([]);
@@ -50,8 +53,9 @@ const MultipleSelect: React.FC<MultipleSelectProps> = ({ items, name, id }) => {
   };
 
   return (
-    <div>
-      <FormControl sx={{ m: 1, width: 400 }}>
+    <div className={cx('col-6',styles.multipleSelectItem)}>
+      {label && <div className={styles.label}>{label}</div>}
+      <FormControl sx={{ m: 1, width: 300 }}>
         <InputLabel id="cuisine-label">{name}</InputLabel>
         <Select
           labelId="cuisine-label"

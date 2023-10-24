@@ -35,7 +35,7 @@
       .image-bowl{
         background-image: url('../../assets/header/bowl.png');
         left: 33%;
-        top: 18%;
+        top: 52%;
         height: 63%;
         width: 34%;
         z-index: 3;
@@ -64,8 +64,8 @@
       }
       .image-tomatos{
         background-image: url('../../assets/header/tomatos.png');
-        right: 6%;
-        top: 23%;
+        right: -5%;
+        top: 70%;
         height: 28%;
         width: 28%;
       }
@@ -83,8 +83,9 @@
         max-width: 1100px;
         margin-bottom: 32px;
         h1{
+          font-size: 75px;
+          color: white;
 
-          font-size: 100px;
         }
         .highlited{
           color: #244614;
