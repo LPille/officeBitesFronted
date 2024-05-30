@@ -1,4 +1,4 @@
-import React, { createContext, useState,useEffect } from 'react'
+import React, { createContext, useState, useEffect } from 'react'
 //import { nanoid } from 'nanoid'
 import { useLocalStorage } from 'usehooks-ts'
 import { getAllRecipes, addRecipe, deleteRecipe, updateRecipe } from '../services/axios'; // Update the path
@@ -19,7 +19,7 @@ export interface Ingredient {
   name: string
 }
 
-export interface Instruction{
+export interface Instruction {
   id: string
   number: number
   description: string
@@ -40,12 +40,17 @@ export const RecipeContext = createContext<RecipeContextProps | undefined>(undef
 export const RecipeProvider = (props: { children: React.ReactNode }) => {
   const [recipes, setRecipes] = useLocalStorage<Recipe[]>('recipes', [])
   const [editingRecipe, setEditingRecipe] = useState<Recipe | null>(null);
+  const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
     const fetchRecipes = async () => {
-      const fetchedRecipes = await getAllRecipes();
-      console.log("fetchedRecipesl ", fetchedRecipes)
-      setRecipes(fetchedRecipes);
+      try {
+        const fetchedRecipes = await getAllRecipes();
+        console.log("fetchedRecipesl ", fetchedRecipes)
+        setRecipes(fetchedRecipes);
+      } catch (err) {
+        setError('Failed to fetch recipes.');
+      }
     };
     fetchRecipes();
   }, []);
@@ -53,7 +58,7 @@ export const RecipeProvider = (props: { children: React.ReactNode }) => {
 
   // ::: ADD NEW Recipe :::
   const handleAddRecipe = async () => {
-    const newRecipeData = { 
+    const newRecipeData = {
       name: '',
       description: '',
       duration: 0,
@@ -61,7 +66,7 @@ export const RecipeProvider = (props: { children: React.ReactNode }) => {
       ingredients: [],
       instructions: []
     }
-    
+
     const newRecipe = await addRecipe(newRecipeData);
     setEditingRecipe(newRecipe)
     setRecipes([...recipes, newRecipe])
@@ -86,7 +91,7 @@ export const RecipeProvider = (props: { children: React.ReactNode }) => {
   // Save a recipe
   const handleSaveRecipe = async (recipe: Recipe | null) => {
     if (recipe) {
-      if(!recipes.some(item => item._id === recipe._id)){
+      if (!recipes.some(item => item._id === recipe._id)) {
         console.log("new RECIPE")
         setRecipes([...recipes, recipe]);
       } else {
@@ -107,19 +112,19 @@ export const RecipeProvider = (props: { children: React.ReactNode }) => {
   }
 
   // ::: UPDATE Receipe STATUS :::
-/*   const updateReceipeStatus = (id: string) => {
-    setReceipes(prevReceipes => {
-      return prevReceipes.map(receipe => {
-        if (receipe.id === id) {
-          return {
-            ...receipe,
-            style: receipe.status === 'undone' ? 'completed' : 'undone',
+  /*   const updateReceipeStatus = (id: string) => {
+      setReceipes(prevReceipes => {
+        return prevReceipes.map(receipe => {
+          if (receipe.id === id) {
+            return {
+              ...receipe,
+              style: receipe.status === 'undone' ? 'completed' : 'undone',
+            }
           }
-        }
-        return receipe
+          return receipe
+        })
       })
-    })
-  } */
+    } */
 
   const value: RecipeContextProps = {
     recipes: recipes,
